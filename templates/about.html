@@ -20,7 +20,9 @@
 
 <div class="row featuretet">
     {% if loop.index % 2 != 0 %}
-    <!---->
+    <!--when we created a for-loop using the Jinja te,plating language,it also creates and object for us called 'loop'-->
+    <!--that object has a property which is 'index', this shows us exactlt which iteration of the loop we're on-->
+    <!-- whit this if statement wi will displat only add numbers-->
     <div class="col-md-7">
         <h3>{{loop.index}}.{{member.name}}</h3>
         <!--this will reference the member variable from out loop, and grab the contents of the "name" key from our JSON file-->
@@ -43,9 +45,14 @@
             {{member.description}}
     </div>
     {% endif %}
+    <!--end of if statement-->
 </div>
+
+{%if loop.index != loop.length %}
 <hr class="featuret-divider">
 <!--class name provided by Clean Blog template-->
+{%endif%}
+
 {% endfor %}
-<!--end of loop-->
+<!--end of memeber loop-->
 {% endblock %}
