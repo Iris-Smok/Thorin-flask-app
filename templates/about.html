@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
+
+
 <h2>{{ page_title }}</h2>
 <p>
     The formation of the group grew out of a meeting Gandalf had with Thorin in Bree which kindled Thorin's interest in
@@ -13,39 +15,22 @@
     Dwarves also considered thirteen to be an unlucky number, and as Gandalf had planned to leave on other business,
     welcomed a fourteenth to fill into their party.
 </p>
+{% for member in company %}
+<!--to add for loop, compant is the list we created in Python file-->
 <div class="row featuretet">
     <div class="col-md-7">
-        <h3>Thorin Oakenshield</h3>
+        <h3>{{member.name}}</h3>
+        <!--this will reference the member variable from out loop, and grab the contents of the "name" key from our JSON file-->
         <p>
-            Thorin II was born in TA 2746 to Dwarf prince Thráin II in the city of the Lonely Mountain. Early in his
-            youth, he and the other Dwarves of the Lonely Mountain were forced to flee by the dragon Smaug in TA 2770.
-            While in exile, he quickly grew to become a capable warrior. This was demonstrated when he participated in
-            the Battle of Azanulbizar in TA 2799. He fought with one of the Dwarven armies beneath the East-gate of
-            Moria. At some point in the fighting, his shield broke, and using an oaken tree branch found on the ground
-            as a shield, he gained the epithet "Oakenshield," which would remain with him even in death.
-
-            Thorin became King-in-Exile of Durin's Folk in TA 2850 after his father went missing, and died in the
-            dungeons of Dol Guldur.
-        </p>
+            {{member.description}}
     </div>
     <div class="col-md-5">
-        <img src="https://vignette.wikia.nocookie.net/lotr/images/3/3f/ThorinBIG.jpg" alt="Thorin">
+        <img src="{{member.image_source}}" alt="Thorin" class="featurette-image image-responsive">
+        <!--we also added a couple of class names provided by our Clean Blog template and Bootstrap-->
     </div>
 </div>
-
-<div class="row featurete">
-    <div class="col-md-5">
-        <img src="https://vignette.wikia.nocookie.net/lotr/images/b/b4/The-Hobbit-Fili-and-Kili.jpg"
-            alt="Filli and Killi">
-    </div>
-
-    <div class="col-md-7">
-        <h3>Filli and Killi</h3>
-        <p>
-            Fíli and Kíli were nephews of Thorin, who was the elder brother of their mother Dís. They were also nephews
-            of Frerin, grandsons of Thráin II, and great-grandsons of Thrór. Fíli's most distinguishing feature was his
-            long nose, the longest of any of the Dwarves in Thorin's company.
-        </p>
-    </div>
-</div>
+<hr class="featuret-divider">
+<!--class name provided by Clean Blog template-->
+{% endfor %}
+<!--end of loop-->
 {% endblock %}
