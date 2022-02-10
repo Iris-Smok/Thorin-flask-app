@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask project</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li> <!--double curly brackets contain an "expression", which is outputting something either onto the screen or in href-->
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('careers') }}">Careers</a></li>
+        </ul>
+    </nav>
+
+{% block content %} <!-- defining a block or area, that we can inject content into form other pages-->
+<!--gets inserted here-->
+{% endblock %} <!--curly bracket and percentage are for statements that control the flow of our teplate-->
+</body>
+</html>
