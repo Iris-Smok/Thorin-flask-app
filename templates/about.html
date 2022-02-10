@@ -24,7 +24,7 @@
     <!--that object has a property which is 'index', this shows us exactlt which iteration of the loop we're on-->
     <!-- whit this if statement wi will displat only add numbers-->
     <div class="col-md-7">
-        <h3>{{loop.index}}.{{member.name}}</h3>
+        <h3><a href="/about/{{ member.url}}">{{loop.index}}.{{member.name}}</a></h3>
         <!--this will reference the member variable from out loop, and grab the contents of the "name" key from our JSON file-->
         <p>
             {{member.description}}
@@ -39,7 +39,7 @@
         <!--we also added a couple of class names provided by our Clean Blog template and Bootstrap-->
     </div>
     <div class="col-md-7">
-        <h3>{{loop.index}}.{{member.name}}</h3>
+        <h3><a href="/about/{{ member.url}}">{{loop.index}}.{{member.name}}</a></h3>
         <!--this will reference the member variable from out loop, and grab the contents of the "name" key from our JSON file-->
         <p>
             {{member.description}}
