@@ -91,7 +91,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+          <p class="copyright text-muted">Copyright &copy; Your Website <span id="copywrite"></span></p>
         </div>
       </div>
     </div>
@@ -103,6 +103,9 @@
 
   <!-- Custom scripts for this template -->
   <script src="{{ url_for('static', filename='js/clean-blog.min.js') }}"></script>
+  <script>
+      $("#copywrite").text(new Date().getFullYear())
+  </script>
 
 </body>
 </html>
