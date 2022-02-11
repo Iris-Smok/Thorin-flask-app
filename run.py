@@ -3,7 +3,9 @@ Flask
 """
 import os
 import json
-from flask import Flask, render_template  # Import the Flask class
+from flask import Flask, render_template, request  # Import the Flask class
+# request library from Flask. Is going to handle things like finding out what
+# method we used, and it will also contain our object when we posted it
 
 
 app = Flask(__name__)
@@ -44,11 +46,14 @@ def about_member(member_name):
     return render_template("member.html", member=member)
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
     """
      Contact page
     """
+    if request.method == "POST":
+        # this is a dictionary
+        print(request.form)
     return render_template("contact.html", page_title="Contact")
 
 
