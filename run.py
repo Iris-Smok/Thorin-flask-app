@@ -3,12 +3,19 @@ Flask
 """
 import os
 import json
-from flask import Flask, render_template, request  # Import the Flask class
+from flask import Flask, render_template, request, flash
+if os.path.exists("env.py"):
+    import env
+
+# Import the Flask class
 # request library from Flask. Is going to handle things like finding out what
 # method we used, and it will also contain our object when we posted it
+# to use flashed messages, we need to create a secret key, because Flask
+# cryptographically signs all of the messages for security purpose
 
 
 app = Flask(__name__)
+app.secret_key = os.environ.get("SECRET_KEY")
 
 
 @app.route("/")
@@ -53,7 +60,8 @@ def contact():
     """
     if request.method == "POST":
         # this is a dictionary
-        print(request.form)
+        flash("Thanks {}, we have received your message!".format(
+            request.form.get("name")))
     return render_template("contact.html", page_title="Contact")
 
 
